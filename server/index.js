@@ -9,7 +9,16 @@ const User = require("./models/userModel"); // Add this at the top
 const path = require("path");
 require("dotenv").config();
 
-app.use(cors({ origin: "http://localhost:3000" }));
+const allowedOrigins = [
+  "https://chatapp-jx1o.onrender.com", // your frontend
+  "http://localhost:3000", // for local dev
+];
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 mongoose

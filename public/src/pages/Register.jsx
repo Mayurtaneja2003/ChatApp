@@ -136,20 +136,33 @@ const FormContainer = styled.div`
   gap: 1rem;
   align-items: center;
   background-color: #131324;
+
   .brand {
     display: flex;
     align-items: center;
     gap: 1rem;
     justify-content: center;
     img {
-      height: 5rem;
+      height: 4rem;
+      @media (max-width: 720px) {
+        height: 2.2rem;
+      }
+      @media (max-width: 480px) {
+        height: 1.7rem;
+      }
     }
-    h1 {
+    h1, h3 {
       color: white;
       text-transform: uppercase;
+      font-size: 2rem;
+      @media (max-width: 720px) {
+        font-size: 1.1rem;
+      }
+      @media (max-width: 480px) {
+        font-size: 1rem;
+      }
     }
   }
-
   form {
     display: flex;
     flex-direction: column;
@@ -157,6 +170,30 @@ const FormContainer = styled.div`
     background-color: #00000076;
     border-radius: 2rem;
     padding: 3rem 5rem;
+    min-width: 320px;
+    max-width: 90vw;
+    width: 100%;
+    box-sizing: border-box;
+    @media (max-width: 720px) {
+      padding: 1.5rem 1rem;
+      gap: 1rem;
+      min-width: unset;
+      width: 95vw;
+    }
+    @media (max-width: 480px) {
+      padding: 1rem 0.5rem;
+      gap: 0.7rem;
+      width: 99vw;
+    }
+  }
+  input, button {
+    font-size: 1rem;
+    @media (max-width: 720px) {
+      font-size: 0.95rem;
+    }
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
   }
   input {
     background-color: transparent;
@@ -166,6 +203,9 @@ const FormContainer = styled.div`
     color: white;
     width: 100%;
     font-size: 1rem;
+    @media (max-width: 480px) {
+      padding: 0.7rem;
+    }
     &:focus {
       border: 0.1rem solid #997af0;
       outline: none;
@@ -181,13 +221,22 @@ const FormContainer = styled.div`
     border-radius: 0.4rem;
     font-size: 1rem;
     text-transform: uppercase;
+    transition: background 0.2s;
+    @media (max-width: 480px) {
+      padding: 0.7rem 1rem;
+      font-size: 0.95rem;
+    }
     &:hover {
-      background-color: #4e0eff;
+      background-color: #3b05d3;
     }
   }
   span {
     color: white;
     text-transform: uppercase;
+    font-size: 0.95rem;
+    @media (max-width: 480px) {
+      font-size: 0.85rem;
+    }
     a {
       color: #4e0eff;
       text-decoration: none;

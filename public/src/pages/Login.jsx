@@ -108,21 +108,39 @@ const FormContainer = styled.div`
     gap: 1rem;
     justify-content: center;
     img {
-      height: 5rem;
+      height: 4rem;
+      @media (max-width: 720px) {
+        height: 2.5rem;
+      }
     }
-    h1 {
+    h1,
+    h3 {
       color: white;
       text-transform: uppercase;
+      font-size: 2rem;
+      @media (max-width: 720px) {
+        font-size: 1.2rem;
+      }
     }
   }
-
   form {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     background-color: #00000076;
     border-radius: 2rem;
-    padding: 5rem;
+    padding: 3rem 5rem;
+    @media (max-width: 720px) {
+      padding: 1.5rem 1rem;
+      gap: 1rem;
+    }
+  }
+  input,
+  button {
+    font-size: 1rem;
+    @media (max-width: 720px) {
+      font-size: 0.9rem;
+    }
   }
   input {
     background-color: transparent;

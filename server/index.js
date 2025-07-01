@@ -6,9 +6,10 @@ const messageRoutes = require("./routes/messages");
 const app = express();
 const socket = require("socket.io");
 const User = require("./models/userModel"); // Add this at the top
+const path = require("path");
 require("dotenv").config();
 
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 
 mongoose
@@ -30,12 +31,18 @@ app.get("/ping", (_req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
+// Serve React build static files
+app.use(express.static(path.join(__dirname, "../public/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/build", "index.html"));
+});
+
 const server = app.listen(process.env.PORT, () =>
   console.log(`Server started on ${process.env.PORT}`)
 );
 const io = socket(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://your-frontend-domain.com",
     credentials: true,
   },
 });

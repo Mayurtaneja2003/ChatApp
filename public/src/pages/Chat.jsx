@@ -109,8 +109,16 @@ const Container = styled.div`
     background-color: #00000076;
     display: grid;
     grid-template-columns: 25% 75%;
-    @media screen and (min-width: 720px) and (max-width: 1080px) {
+    @media screen and (max-width: 1080px) {
       grid-template-columns: 35% 65%;
+      width: 98vw;
+      height: 90vh;
+    }
+    @media screen and (max-width: 720px) {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
     }
   }
 `;

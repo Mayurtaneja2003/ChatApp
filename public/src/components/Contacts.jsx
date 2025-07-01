@@ -207,6 +207,28 @@ const Container = styled.div`
   grid-template-rows: 10% 75% 15%;
   overflow: hidden;
   background-color: #080420;
+  @media screen and (max-width: 720px) {
+    grid-template-rows: 10% 75% 15%;
+    .contacts {
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 0.5rem;
+      .contact {
+        min-width: 120px;
+        flex: 0 0 auto;
+      }
+    }
+    .current-user {
+      flex-direction: row;
+      gap: 1rem;
+      .avatar img {
+        height: 2.5rem;
+      }
+      .username h2 {
+        font-size: 1rem;
+      }
+    }
+  }
   .brand {
     display: flex;
     align-items: center;

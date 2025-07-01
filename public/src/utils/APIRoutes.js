@@ -1,4 +1,7 @@
-export const host = process.env.REACT_APP_API_URL || "http://localhost:5000";
+export const host =
+  process.env.NODE_ENV === "production"
+    ? ""
+    : process.env.REACT_APP_API_URL || "http://localhost:5000";
 export const registerRoute = `${host}/api/auth/register`;
 export const loginRoute = `${host}/api/auth/login`;
 export const setAvatarRoute = `${host}/api/auth/setAvatar`;

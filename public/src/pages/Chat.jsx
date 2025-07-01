@@ -29,7 +29,9 @@ export default function Chat() {
   }, []);
   useEffect(() => {
     if (currentUser) {
-      socket.current = io(host);
+      // socket.current = io(host);
+      const socketUrl = process.env.NODE_ENV === "production" ? undefined : host;
+socket.current = io(socketUrl);
       socket.current.emit("add-user", currentUser._id);
     }
   }, [currentUser]);

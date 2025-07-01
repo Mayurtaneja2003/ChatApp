@@ -22,7 +22,9 @@ export default function Contacts({ contacts, changeChat, currentUser, setCurrent
     setCurrentUserName(data.username);
     setCurrentUserImage(data.avatarImage);
 
-    socket.current = io(host);
+    // socket.current = io(host);
+    const socketUrl = process.env.NODE_ENV === "production" ? undefined : host;
+socket.current = io(socketUrl);
     socket.current.on("online-users", (users) => {
       setOnlineUsers(users);
     });
